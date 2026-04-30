@@ -9,8 +9,10 @@ class Category extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['nama_kategori', 'keterangan'];
+
     public function movie()
     {
-        return $this->hasMany(Category::class);
+        return $this->hasMany(Movie::class);
     }
 }

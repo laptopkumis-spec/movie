@@ -20,7 +20,7 @@ class MovieFactory extends Factory
             'id' => $this->faker->unique()->regexify('tt[0-9]{7}'),
             'judul' => $this->faker->sentence,
             'sinopsis' => $this->faker->paragraph,
-            'category_id' => $this->faker->randomElement([1, 2, 3]),
+            'category_id' => \App\Models\Category::inRandomOrder()->first()?->id ?? 1,
             'tahun' => $this->faker->year,
             'pemain' => $this->faker->sentence,
             'foto_sampul' => 'default.jpg',
